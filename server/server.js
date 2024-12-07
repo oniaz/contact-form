@@ -20,6 +20,10 @@ const transporter = nodemailer.createTransport({
   },
 });
 
+app.get('/', (req, res) => {
+  res.send('Contact form server is up and running!');
+});
+
 app.post('/send-email', (req, res) => {
   const { name, email, message } = req.body;
 
