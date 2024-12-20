@@ -13,10 +13,10 @@ app.use(cors());
 app.use(bodyParser.json());
 
 const transporter = nodemailer.createTransport({
-  service: 'gmail',
+  service: process.env.EMAIL_SERVICE,
   auth: {
-    user: process.env.EMAIL,
-    pass: process.env.EMAIL_PASS,
+    user: process.env.USER,
+    pass: process.env.PASS,
   },
 });
 
@@ -29,7 +29,7 @@ app.post('/send-email', (req, res) => {
 
   const mailOptions = {
     from: email,
-    to: process.env.EMAIL,
+    to: process.env.USER,
     subject: `Message from ${name}`,
     text: `From: ${email}\n\nMessage:\n\n${message}`,
   };
