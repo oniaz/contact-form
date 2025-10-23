@@ -4,26 +4,75 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact Form</title>
+  <title>contact me :3</title>
   <link rel="stylesheet" href="styles.css">
+  <link rel="icon" type="image/png" href="./src/favicon.ico" />
+
 </head>
 
 <body>
-  <h1>Contact Us</h1>
-  <main>
+  <!-- Nature sprites floating around -->
+  <div class="nature-sprite leaf"></div>
+  <div class="nature-sprite flower"></div>
+  <div class="nature-sprite cloud"></div>
+  <div class="nature-sprite leaf"></div>
+  <div class="nature-sprite flower"></div>
+
+  <div class="pixel-sun"></div>
+
+  <div class="container">
+    <div class="cat-section">
+      <div class="cat-sprite"></div>
+    </div>
+
+    <header>
+      <h1>hey there</h1>
+      <p class="subtitle">~ let's connect ~</p>
+    </header>
+
     <div class="contact-form">
+      <div class="pixel-corner tl"></div>
+      <div class="pixel-corner tr"></div>
+      <div class="pixel-corner bl"></div>
+      <div class="pixel-corner br"></div>
+      <div class="deco-sprite"></div>
+      <div class="deco-sprite"></div>
+      <div class="signature">~ oniaz</div>
+
       <form id="contactForm">
-        <label for="name">Name:</label>
-        <input type="text" id="name" required="">
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required="">
-        <label for="message">Message:</label>
-        <textarea id="message" name="message" required=""></textarea>
-        <button type="submit">Submit</button>
+        <div class="form-group">
+          <label for="name">name</label>
+          <input type="text" id="name" name="name" required placeholder="what do i call you?">
+        </div>
+
+        <div class="form-group">
+          <label for="email">email</label>
+          <input type="email" id="email" name="email" required placeholder="your@email.com">
+        </div>
+
+        <div class="form-group">
+          <label for="message">message</label>
+          <textarea id="message" name="message" required
+            placeholder="wanna chat about code? share a cool project? recommend a movie? or just vibe?&#10;&#10;literally anything :3"></textarea>
+        </div>
+
+        <button type="submit" class="submit-btn">send it! ✨</button>
       </form>
     </div>
-  </main>
-  <script src="script.js"></script>
+
+    <div class="footer">
+      <p class="footer-text">© 2025 oniaz :3</p>
+      <div class="social-pixels">
+        <div class="pixel-icon" title="github"></div>
+        <div class="pixel-icon" title="linkedin"></div>
+        <div class="pixel-icon" title="portfolio"></div>
+      </div>
+    </div>
+  </div>
+
+  <div id="messageBox" class="message"></div>
+
+
 </body>
 
 </html>
