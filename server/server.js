@@ -30,8 +30,8 @@ app.post('/send-email', (req, res) => {
   const mailOptions = {
     from: email,
     to: process.env.USER,
-    subject: `Message from ${name}`,
-    text: `From: ${email}\n\nMessage:\n\n${message}`,
+    subject: '📬 Vercel Contact Form Submission',
+    text: `•✉️ From: ${email}\n•👤 Name: ${name}\n•💬 Message:\n${message}`,
   };
 
   transporter.sendMail(mailOptions, (error, info) => {
