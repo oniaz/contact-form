@@ -61,11 +61,11 @@ app.post('/send-email', (req, res) => {
 
 app.use((err, req, res, next) => {
   if (err.message === 'Not allowed by CORS') {
-    console.warn('🚫 Blocked request from:', req.headers.origin);
+    console.warn(`🚫 Blocked request from: ${req.headers.origin || 'unknown origin (no header provided)'}`);
     return res.status(403).json({ error: 'Nice try, but you’re not invited 😎' });
   }
   console.error(err.stack);
-  res.status(500).json({ error: 'Server’s having a bad day.' });
+  res.status(500).json({ error: 'Server’s having a bad day 💀' });
 });
 
 
