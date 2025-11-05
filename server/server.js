@@ -9,8 +9,23 @@ dotenv.config();
 const app = express();
 const port = 3000;
 
-app.use(cors());
 app.use(bodyParser.json());
+
+const allowedOrigins = process.env.ALLOWED_ORIGINS
+  ? process.env.ALLOWED_ORIGINS.split(',')
+  : [];
+
+const allowNoOrigin = process.env.ALLOW_NO_ORIGIN === 'true';
+
+app.use(cors({
+  origin: function (origin, callback) {
+    if ((allowNoOrigin && !origin) || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+}));
 
 const transporter = nodemailer.createTransport({
   service: process.env.EMAIL_SERVICE,
