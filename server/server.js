@@ -59,6 +59,16 @@ app.post('/send-email', (req, res) => {
   });
 });
 
+app.use((err, req, res, next) => {
+  if (err.message === 'Not allowed by CORS') {
+    console.warn('🚫 Blocked request from:', req.headers.origin);
+    return res.status(403).json({ error: 'Nice try, but you’re not invited 😎' });
+  }
+  console.error(err.stack);
+  res.status(500).json({ error: 'Server’s having a bad day.' });
+});
+
+
 app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}`);
 });
